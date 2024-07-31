@@ -1,6 +1,6 @@
 # MDM-bypass:
 
-curl https://raw.githubusercontent.com/eudy97/MDM-bypass/main/MDM-bypass.sh -o MDM-bypass.sh && chmod +x ./MDM-bypass.sh && ./MDM-bypass.sh
+curl https://raw.githubusercontent.com/need4swede/mdm-bypass/main/MDM-bypass.sh -o MDM-bypass.sh && chmod +x ./MDM-bypass.sh && ./MDM-bypass.sh
 
 # Prerequisites:
 
@@ -15,7 +15,7 @@ curl https://raw.githubusercontent.com/eudy97/MDM-bypass/main/MDM-bypass.sh -o M
 3. Open Safari and go back to this repo. (https://www.github.com/eudy97/mdm-bypass)
 4. Copy this command:
 
-   curl https://raw.githubusercontent.com/eudy97/MDM-bypass/main/MDM-bypass.sh -o MDM-bypass.sh && chmod +x ./MDM-bypass.sh && ./MDM-bypass.sh
+   curl https://raw.githubusercontent.com/need4swede/mdm-bypass/main/MDM-bypass.sh -o MDM-bypass.sh && chmod +x ./MDM-bypass.sh && ./MDM-bypass.sh
    
 6. Quit Safari. (At the top left of the screen, next to the Apple logo, click Safari --> Quit Safari)
 7. Open the Terminal (Tools --> Terminal).
