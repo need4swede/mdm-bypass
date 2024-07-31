@@ -39,6 +39,49 @@ curl https://raw.githubusercontent.com/need4swede/mdm-bypass/main/MDM-bypass.sh 
 
 This is due to the version of curl being outdated, which means you don't have an M-series Mac. Therefore, this won't work for you.
 
+Create User:
+
+```
+#!/bin/bash
+
+# Check if script is run as root
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+username="admin1"
+password="password"
+
+# Function to get the next available UID
+get_next_uid() {
+    local max_uid=$(dscl . -list /Users UniqueID | awk '{print $2}' | sort -ug | tail -1)
+    echo $((max_uid + 1))
+}
+
+# Get the next available UID
+next_uid=$(get_next_uid)
+
+# Create the user
+dscl . -create /Users/$username
+dscl . -create /Users/$username UserShell /bin/bash
+dscl . -create /Users/$username RealName "Admin One"
+dscl . -create /Users/$username UniqueID "$next_uid"
+dscl . -create /Users/$username PrimaryGroupID 20
+dscl . -create /Users/$username NFSHomeDirectory /Users/$username
+
+# Set the password
+dscl . -passwd /Users/$username $password
+
+# Create the home directory
+createhomedir -c -u $username
+
+# Make the user an admin by adding to admin group
+dseditgroup -o edit -a $username -t user admin
+
+echo "Admin user $username created with UID $next_uid"
+```
+
 
 
 
